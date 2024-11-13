@@ -3,11 +3,14 @@
 let searchProduct = document.getElementById("search");
 let tbody = document.getElementById("tbody");
 
+let products = [];
+
 const callProductApi = async () => {
   try {
     const response = await fetch("https://dummyjson.com/products");
     const result = await response.json();
     console.log(result.products);
+    products = result.products;
     displayproductData(result.products);
     return result.products;
   } catch (e) {
@@ -55,3 +58,13 @@ function displayproductData(productTodisplay)
         tbody.appendChild(tr);
     })
 }
+
+
+///input for search engine
+
+searchProduct.addEventListener("keyup", (e)=>{
+if(e.key ==="Enter"){
+    // console.log(searchProduct.value.tolowercase())
+    console.log(products)
+}
+})
