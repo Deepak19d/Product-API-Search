@@ -37,7 +37,7 @@ function displayproductData(productTodisplay) {
     deleteButton.textContent="Delete";
     deleteButton.addEventListener("click", (e)=>
     {
-      alert(res.id)
+      // alert(res.id)
       deleteProduct(res.id)
     })
 
@@ -88,6 +88,16 @@ searchProduct.addEventListener("keyup", (e) => {
 
 function deleteProduct(productId)
 {
-  console.log(deleteProduct)
 
+//   const index = product.findIndex((i.id===productId));
+// if(Index !== -1)
+// {
+//   products.splice(index,1);
+//   displayproductData(products)
+
+
+// }
+
+products = products.filter((i)=>i.id!==productId);
+displayproductData(products);
 }
